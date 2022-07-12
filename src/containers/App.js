@@ -5,6 +5,7 @@ import Map from "../components/Map";
 import CountrySelect from "../components/CountrySelect.js";
 import CityCard from "../components/CityCard";
 import NavBar from "../components/NavBar";
+import NewNavBar from "../components/NewNavBar";
 import AppBar from "@mui/material/AppBar";
 import Button from "@mui/material/Button";
 import CameraIcon from "@mui/icons-material/PhotoCamera";
@@ -37,7 +38,7 @@ function App({ cities, cityGeo, targetLat, targetLong }) {
     <>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <NavBar />
+        <NewNavBar />
         <main>
           <Box
             sx={{
@@ -74,10 +75,10 @@ function App({ cities, cityGeo, targetLat, targetLong }) {
                 <CountrySelect handleChange={setSelectedOptions} />
                 <Button
                   variant="outlined"
-                  onClick={() => {
-                    dispatch(fetchCityGeo(selectedOptions.label));
+                  onClick={async () => {
+                    await dispatch(fetchCityGeo(selectedOptions.label));
                     //console.log("new tarLatLong:", targetLat, targetLong);
-                    dispatch(
+                    await dispatch(
                       fetchCurrentWeather({
                         lat: cityGeo[counter][0],
                         lng: cityGeo[counter][1],
