@@ -3,10 +3,13 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import Root from "./containers/Root";
 //import * as serviceWorker from "./serviceWorker";
+import { BrowserRouter } from "react-router-dom";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Root />
+    <BrowserRouter>
+      <Root />
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")
 );
