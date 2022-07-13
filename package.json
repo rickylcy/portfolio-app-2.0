@@ -1,6 +1,6 @@
 {
   "name": "app-app",
-  "homepage": "https://rickylcy.github.io/",
+  "homepage": "https://rickylcy.github.io/weather-app-2.0/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -19,6 +19,7 @@
     "react-geocode": "^0.2.3",
     "react-leaflet": "^4.0.1",
     "react-redux": "^8.0.2",
+    "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
     "redux": "^4.2.0",
     "redux-batched-subscribe": "^0.1.6",
@@ -32,7 +33,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build -b gh-pages"
   },
   "eslintConfig": {
     "extends": [
