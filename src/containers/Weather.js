@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { connect, useDispatch } from "react-redux";
-import { addCard, fetchCurrentWeather, fetchCityGeo } from "../redux/reducers";
-import CountrySelect from "../components/CountrySelect.js";
-import CityCard from "../components/CityCard";
+import {
+  addCard,
+  fetchCurrentWeather,
+  fetchCityGeo,
+} from "../redux/weatherReducer";
+import CountrySelect from "../components/weather/CountrySelect.js";
+import CityCard from "../components/weather/CityCard";
 import Button from "@mui/material/Button";
 
 import Grid from "@mui/material/Grid";
@@ -101,10 +105,10 @@ function Weather({ cities, cityGeo, targetLat, targetLong }) {
 
 const mapStateToProps = (state) => {
   return {
-    cities: state.cityWeather,
-    cityGeo: state.cityGeo,
-    targetLat: state.targetLat,
-    targetLong: state.targetLong,
+    cities: state.weather.cityWeather,
+    cityGeo: state.weather.cityGeo,
+    targetLat: state.weather.targetLat,
+    targetLong: state.weather.targetLong,
   };
 };
 
