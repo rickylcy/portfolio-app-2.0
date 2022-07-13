@@ -1,18 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { connect, useDispatch } from "react-redux";
 import { addCard, fetchCurrentWeather, fetchCityGeo } from "../redux/reducers";
-import Map from "../components/Map";
 import CountrySelect from "../components/CountrySelect.js";
 import CityCard from "../components/CityCard";
-import NavBar from "../components/NavBar";
-import NewNavBar from "../components/Nav";
-import AppBar from "@mui/material/AppBar";
 import Button from "@mui/material/Button";
-import CameraIcon from "@mui/icons-material/PhotoCamera";
-import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
 
 import Grid from "@mui/material/Grid";
 import Stack from "@mui/material/Stack";
