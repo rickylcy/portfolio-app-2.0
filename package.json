@@ -1,8 +1,8 @@
 {
   "name": "app-app",
-  "homepage": "https://rickylcy.github.io/",
+  "homepage": "https://rickylcy.github.io/weather-app-2.0/",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "dependencies": {
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
