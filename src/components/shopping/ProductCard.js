@@ -1,43 +1,57 @@
 import React from "react";
-import Button from "@mui/material/Button";
+import { connect } from "react-redux";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
+import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import { loadCurrentItem, addToCart } from "../../redux/shopping-actions";
 
-function ProductCard({ product }) {
+function ProductCard({ product, addToCart, loadCurrentItem, cart }) {
   return (
-    <Card
-      sx={{
-        height: 500,
-        width: 300,
-        display: "flex",
-        flexDirection: "column",
-      }}
-    >
-      <Typography gutterBottom variant="h6" component="h2">
-        {product.title}
-      </Typography>
+    <Card sx={{ maxWidth: 345 }}>
       <CardMedia
         component="img"
-        sx={{
-          height: "30%",
-        }}
+        height="140"
         image={product.image}
-        alt="random"
+        alt="green iguana"
       />
-      <CardContent sx={{ flexGrow: 1 }}>
-        <Typography gutterBottom variant="h6" component="h2">
+      <CardContent>
+        <Typography gutterBottom variant="h5" component="div">
+          {product.title}
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
           {product.description}
         </Typography>
         <Typography>Price: {product.price}</Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">View</Button>
-        <Button size="small">Edit</Button>
+        <Button
+          onClick={() => {
+            console.log(cart);
+          }}
+          size="small"
+        >
+          View Item
+        </Button>
+        <Button onClick={() => addToCart(product.id)} size="small">
+          Add To Cart
+        </Button>
       </CardActions>
     </Card>
   );
 }
-export default ProductCard;
+
+const mapStateToProps = (state) => {
+  return {
+    cart: state.shopping.cart,
+  };
+};
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addToCart: (id) => dispatch(addToCart(id)),
+    loadCurrentItem: (item) => dispatch(loadCurrentItem(item)),
+  };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(ProductCard);

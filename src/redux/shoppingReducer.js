@@ -1,4 +1,6 @@
+import { AccessTimeTwoTone } from "@mui/icons-material";
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import * as actionTypes from "./shopping-types";
 
 const initialState = {
   cart: [],
@@ -34,11 +36,104 @@ const initialState = {
   currentItem: null,
 };
 
+const shopReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case actionTypes.ADD_TO_CART:
+      // Great Item data from products array
+      const item = state.products.find(
+        (product) => product.id === action.payload.id
+      );
+      // Check if Item is in cart already
+      const inCart = state.cart.find((item) =>
+        item.id === action.payload.id ? true : false
+      );
+
+      return {
+        ...state,
+        cart: inCart
+          ? state.cart.map((item) =>
+              item.id === action.payload.id
+                ? { ...item, qty: item.qty + 1 }
+                : item
+            )
+          : [...state.cart, { ...item, qty: 1 }],
+      };
+    case actionTypes.REMOVE_FROM_CART:
+      return {
+        ...state,
+        cart: state.cart.filter((item) => item.id !== action.payload.id),
+      };
+    case actionTypes.ADJUST_ITEM_QTY:
+      return {
+        ...state,
+        cart: state.cart.map((item) =>
+          item.id === action.payload.id
+            ? { ...item, qty: +action.payload.qty }
+            : item
+        ),
+      };
+    case actionTypes.LOAD_CURRENT_ITEM:
+      return {
+        ...state,
+        currentItem: action.payload,
+      };
+    default:
+      return state;
+  }
+};
+/*
 const slice = createSlice({
   name: "shopping",
   initialState,
-  reducers: {},
-  extraReducers: {},
-});
+  reducers: {
+    addToCart(state, action) {
+      // Great Item data from products array
+      const item = state.products.find(
+        (product) => product.id === action.payload.id
+      );
+      console.log("ITEM U WANNA ADD: ", item.title);
 
-export default slice.reducer;
+      // Check if Item is in cart already
+      const inCart = state.cart.find((item) =>
+        item.id === action.payload.id ? true : false
+      );
+      console.log("IN CART? ", inCart);
+      return {
+        ...state,
+        cart: inCart
+          ? state.cart.map((item) =>
+              item.id === action.payload.id
+                ? { ...item, qty: item.qty + 1 }
+                : item
+            )
+          : [...state.cart, { ...item, qty: 1 }],
+      };
+    },
+    removeFromCart(state, action) {
+      return {
+        ...state,
+        cart: state.cart.filter((item) => item.id !== action.payload.id),
+      };
+    },
+    adjustItemQty(state, action) {
+      return {
+        ...state,
+        cart: state.cart.map((item) =>
+          item.id === action.payload.id
+            ? { ...item, qty: +action.payload.qty }
+            : item
+        ),
+      };
+    },
+    loadCurrentItem(state, action) {
+      return {
+        ...state,
+        currentItem: action.payload,
+      };
+    },
+  },
+  extraReducers: {},
+});*/
+
+//export default slice.reducer;
+export default shopReducer;

@@ -1,5 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { connect, useDispatch } from "react-redux";
+import {
+  addToCart,
+  removeFromCart,
+  adjustItemQty,
+  laodCurrentItem,
+} from "../redux/shoppingReducer";
 import Grid from "@mui/material/Grid";
 import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
@@ -9,8 +15,20 @@ import Container from "@mui/material/Container";
 import Link from "@mui/material/Link";
 import Cart from "../components/shopping/Cart";
 import ProductCard from "../components/shopping/ProductCard";
-function Shopping({ products }) {
+function Shopping({ products, cart }) {
+  const dispatch = useDispatch();
+
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const [cartCount, setCartCount] = useState(0);
+
+  useEffect(() => {
+    let count = 0;
+    cart.forEach((item) => {
+      count += item.qty;
+    });
+
+    setCartCount(count);
+  }, [cart, cartCount]);
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -47,6 +65,7 @@ function Shopping({ products }) {
               </Grid>
               <Grid item xs={2}>
                 <Cart
+                  qty={cartCount}
                   id={id}
                   open={open}
                   anchorEl={anchorEl}
@@ -72,6 +91,7 @@ function Shopping({ products }) {
 const mapStateToProps = (state) => {
   return {
     products: state.shopping.products,
+    cart: state.shopping.cart,
   };
 };
 
