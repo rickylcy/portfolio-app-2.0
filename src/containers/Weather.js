@@ -16,6 +16,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import Link from "@mui/material/Link";
+import Paper from "@mui/material/Paper";
 
 function Weather({ cities, cityGeo, targetLat, targetLong }) {
   const dispatch = useDispatch();
@@ -37,53 +38,71 @@ function Weather({ cities, cityGeo, targetLat, targetLong }) {
             pb: 4,
           }}
         >
-          <Container maxWidth="sm">
-            <Typography
-              component="h1"
-              variant="h5"
-              align="center"
-              color="text.primary"
-              gutterBottom
-            >
-              Weather Track
-            </Typography>
-            <Typography
-              variant="subtitle1"
-              align="center"
-              color="text.secondary"
-              paragraph
-            >
-              Choose the country and press the add card button to check the
-              weather. You can start typing and search your preference city.
-            </Typography>
-            <Stack
-              sx={{ pt: 4 }}
-              direction="row"
-              spacing={2}
-              justifyContent="center"
-            >
-              <CountrySelect handleChange={setSelectedOptions} />
-              <Button
-                variant="outlined"
-                onClick={async () => {
-                  await dispatch(fetchCityGeo(selectedOptions.label));
-                  //console.log("new tarLatLong:", targetLat, targetLong);
-                  await dispatch(
-                    fetchCurrentWeather({
-                      lat: cityGeo[counter][0],
-                      lng: cityGeo[counter][1],
-                    })
-                    //fetchCurrentWeather({ lat: targetLat, lng: targetLong })
-                  );
-                  setCounter(counter + 1);
-                  console.log("cities after clicked:", cities);
-                  console.log("cityGeo after clicked:", cityGeo);
-                }}
-              >
-                ADD CARD
-              </Button>
-              <Typography>Total Card: {counter}</Typography>
-            </Stack>
+          <Container maxWidth="xl">
+            <Grid container>
+              <Grid item sx={12} md={2}>
+                <Paper>AAGAGGA</Paper>
+              </Grid>
+              <Grid item sx={12} md={8}>
+                <Typography
+                  component="h1"
+                  variant="h5"
+                  align="center"
+                  color="text.primary"
+                  gutterBottom
+                >
+                  Weather Track
+                </Typography>
+                <Typography
+                  variant="subtitle1"
+                  align="center"
+                  color="text.secondary"
+                  paragraph
+                >
+                  Choose the country and press the add card button to check the
+                  weather.
+                </Typography>
+                <Typography
+                  variant="subtitle1"
+                  align="center"
+                  color="text.secondary"
+                  paragraph
+                >
+                  You can start typing and search your preference city.
+                </Typography>
+                <Stack
+                  sx={{ pt: 4 }}
+                  direction="row"
+                  spacing={2}
+                  justifyContent="center"
+                >
+                  <CountrySelect handleChange={setSelectedOptions} />
+                  <Button
+                    variant="outlined"
+                    onClick={async () => {
+                      await dispatch(fetchCityGeo(selectedOptions.label));
+                      //console.log("new tarLatLong:", targetLat, targetLong);
+                      await dispatch(
+                        fetchCurrentWeather({
+                          lat: cityGeo[counter][0],
+                          lng: cityGeo[counter][1],
+                        })
+                        //fetchCurrentWeather({ lat: targetLat, lng: targetLong })
+                      );
+                      setCounter(counter + 1);
+                      console.log("cities after clicked:", cities);
+                      console.log("cityGeo after clicked:", cityGeo);
+                    }}
+                  >
+                    ADD CARD
+                  </Button>
+                  <Typography>Total Card: {counter}</Typography>
+                </Stack>
+              </Grid>
+              <Grid item sx={12} md={2}>
+                <Paper>TO DO:</Paper>
+              </Grid>
+            </Grid>
           </Container>
         </Box>
         <Grid container spacing={4}>

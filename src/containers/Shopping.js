@@ -13,8 +13,10 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import Link from "@mui/material/Link";
+import Paper from "@mui/material/Paper";
 import Cart from "../components/shopping/Cart";
 import ProductCard from "../components/shopping/ProductCard";
+
 function Shopping({ products, cart }) {
   const dispatch = useDispatch();
 
@@ -51,9 +53,12 @@ function Shopping({ products, cart }) {
             pb: 4,
           }}
         >
-          <Container maxWidth="sm">
-            <Grid container spacing={8}>
-              <Grid item xs={10}>
+          <Container maxWidth="xl">
+            <Grid container>
+              <Grid item sx={12} md={2}>
+                <Paper>AAGAGGA</Paper>
+              </Grid>
+              <Grid item sx={12} md={6}>
                 <Typography
                   variant="subtitle1"
                   color="text.secondary"
@@ -63,7 +68,7 @@ function Shopping({ products, cart }) {
                   ALKSGNASG
                 </Typography>
               </Grid>
-              <Grid item xs={2}>
+              <Grid item sx={12} md={2}>
                 <Cart
                   qty={cartCount}
                   id={id}
@@ -72,6 +77,9 @@ function Shopping({ products, cart }) {
                   handleClick={handleClick}
                   handleClose={handleClose}
                 />
+              </Grid>
+              <Grid item sx={12} md={2}>
+                <Paper>TO DO:</Paper>
               </Grid>
             </Grid>
           </Container>

@@ -10,9 +10,13 @@ function Cart({ cart, qty, id, open, anchorEl, handleClick, handleClose }) {
   return (
     <>
       <Button aria-describedby={id} variant="contained" onClick={handleClick}>
-        <ShoppingCartIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
-        View Cart
-        <Typography>{qty}</Typography>
+        <ShoppingCartIcon
+          md={3}
+          sx={{ display: { xs: "none", md: "flex" }, mr: 1 }}
+        />
+        <Typography md={6}>View Cart</Typography>
+
+        <Typography md={3}>{qty}</Typography>
       </Button>
       <Popover
         id={id}
