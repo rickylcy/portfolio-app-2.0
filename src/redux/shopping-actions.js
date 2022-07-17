@@ -18,12 +18,20 @@ export const removeFromCart = (itemID) => {
   };
 };
 
-export const adjustItemQty = (itemID, qty) => {
+export const addItemQty = (itemID) => {
   return {
-    type: actionTypes.ADJUST_ITEM_QTY,
+    type: actionTypes.ADD_ITEM_QTY,
     payload: {
       id: itemID,
-      qty,
+    },
+  };
+};
+
+export const subtractItemQty = (itemID) => {
+  return {
+    type: actionTypes.SUBTRACT_ITEM_QTY,
+    payload: {
+      id: itemID,
     },
   };
 };

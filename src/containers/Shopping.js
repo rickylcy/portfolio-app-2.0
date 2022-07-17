@@ -56,7 +56,10 @@ function Shopping({ products, cart }) {
           <Container maxWidth="xl">
             <Grid container>
               <Grid item sx={12} md={2}>
-                <Paper>AAGAGGA</Paper>
+                <Paper sx={{ margin: 3 }}>
+                  This app is designed with Material UI and Redux. Mainly for me
+                  to practice and learn my Redux skill.
+                </Paper>
               </Grid>
               <Grid item sx={12} md={6}>
                 <Typography
@@ -64,8 +67,7 @@ function Shopping({ products, cart }) {
                   color="text.secondary"
                   paragraph
                 >
-                  LASNFLASFNLASNLK ALKSGNLAKSGN ALSNGLAGN ALSKNGLAKG ALKSGNASG
-                  ALKSGNASG
+                  Welcome to my shop. Feel free to browse our products!
                 </Typography>
               </Grid>
               <Grid item sx={12} md={2}>
@@ -79,7 +81,11 @@ function Shopping({ products, cart }) {
                 />
               </Grid>
               <Grid item sx={12} md={2}>
-                <Paper>TO DO:</Paper>
+                <Paper>
+                  TO DO: 1. Connect to DB and store product info 2. Ideally
+                  change the page to use API to fetch some online product info
+                  but it would be the last.
+                </Paper>
               </Grid>
             </Grid>
           </Container>

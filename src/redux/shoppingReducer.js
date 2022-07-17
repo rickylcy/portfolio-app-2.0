@@ -1,6 +1,7 @@
 import { AccessTimeTwoTone } from "@mui/icons-material";
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import * as actionTypes from "./shopping-types";
+import React, { useState } from "react";
 
 const initialState = {
   cart: [],
@@ -63,15 +64,21 @@ const shopReducer = (state = initialState, action) => {
         ...state,
         cart: state.cart.filter((item) => item.id !== action.payload.id),
       };
-    case actionTypes.ADJUST_ITEM_QTY:
+    case actionTypes.ADD_ITEM_QTY:
       return {
         ...state,
         cart: state.cart.map((item) =>
-          item.id === action.payload.id
-            ? { ...item, qty: +action.payload.qty }
-            : item
+          item.id === action.payload.id ? { ...item, qty: item.qty + 1 } : item
         ),
       };
+    case actionTypes.SUBTRACT_ITEM_QTY:
+      return {
+        ...state,
+        cart: state.cart.map((item) =>
+          item.id === action.payload.id ? { ...item, qty: item.qty - 1 } : item
+        ),
+      };
+
     case actionTypes.LOAD_CURRENT_ITEM:
       return {
         ...state,

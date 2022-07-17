@@ -41,7 +41,11 @@ function Weather({ cities, cityGeo, targetLat, targetLong }) {
           <Container maxWidth="xl">
             <Grid container>
               <Grid item sx={12} md={2}>
-                <Paper>AAGAGGA</Paper>
+                <Paper sx={{ margin: 3 }}>
+                  This feature is developed with Redux and using Open Weather
+                  and Leaflet API. The purpose is to practice using API and
+                  material ui.
+                </Paper>
               </Grid>
               <Grid item sx={12} md={8}>
                 <Typography
@@ -100,7 +104,12 @@ function Weather({ cities, cityGeo, targetLat, targetLong }) {
                 </Stack>
               </Grid>
               <Grid item sx={12} md={2}>
-                <Paper>TO DO:</Paper>
+                <Paper>
+                  TO DO: 1. Disable adding when api is loading by adding spinner
+                  2. Connect to DB and store all cities info for retriving it
+                  when user first enter the page 3. Add a pic search api for
+                  searching random picture for each city when added.
+                </Paper>
               </Grid>
             </Grid>
           </Container>

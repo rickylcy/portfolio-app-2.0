@@ -4,9 +4,20 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import ButtonGroup from "@mui/material/ButtonGroup";
 import { connect } from "react-redux";
-
-function Cart({ cart, qty, id, open, anchorEl, handleClick, handleClose }) {
+import { addItemQty, subtractItemQty } from "../../redux/shopping-actions";
+function Cart({
+  cart,
+  qty,
+  id,
+  open,
+  anchorEl,
+  handleClick,
+  handleClose,
+  addItemQty,
+  subtractItemQty,
+}) {
   return (
     <>
       <Button aria-describedby={id} variant="contained" onClick={handleClick}>
@@ -28,11 +39,18 @@ function Cart({ cart, qty, id, open, anchorEl, handleClick, handleClose }) {
           horizontal: "left",
         }}
       >
-        <Typography sx={{ p: 2 }}>The content of the Popover.</Typography>
+        <Typography align="center" sx={{ p: 2 }}>
+          Your Cart:
+        </Typography>
         {cart?.map((item, index) => (
           <Stack key={index} direction="row" spacing={2}>
             <Avatar src={item.image} />
             <Typography variant="subtitle2">{item.title}</Typography>
+            <ButtonGroup size="small" aria-label="small outlined button group">
+              <Button onClick={() => addItemQty(item.id)}>+</Button>
+              <Button disabled>{item.qty}</Button>
+              <Button onClick={() => subtractItemQty(item.id)}>-</Button>
+            </ButtonGroup>
             <Typography variant="subtitle2">{item.qty}</Typography>
           </Stack>
         ))}
@@ -45,5 +63,10 @@ const mapStateToProps = (state) => {
     cart: state.shopping.cart,
   };
 };
-
-export default connect(mapStateToProps)(Cart);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addItemQty: (id) => dispatch(addItemQty(id)),
+    subtractItemQty: (id) => dispatch(subtractItemQty(id)),
+  };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(Cart);
