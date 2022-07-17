@@ -45,7 +45,7 @@ const ResponsiveAppBar = () => {
             variant="h6"
             noWrap
             component="a"
-            href="/weather-app-2.0/"
+            href="/portfolio-app-2.0/"
             sx={{
               mr: 2,
               display: { xs: "none", md: "flex" },
