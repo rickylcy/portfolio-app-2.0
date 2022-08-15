@@ -7,7 +7,25 @@ import Weather from "./Weather";
 import Shopping from "./Shopping";
 
 function App() {
-  const theme = createTheme();
+  const theme = createTheme({
+    palette:{
+      mode:"dark",
+      
+    primary: {
+      main: '#fff',
+    },
+    secondary: {
+      main: 'rgb(30, 190,214)',
+    },
+    background: {
+      default: '#131415',
+      paper: '#2b3031',
+    },
+    text: {
+      secondary: '#adb0b1',
+    },
+    },
+  });
   return (
     <div className="App">
       <ThemeProvider theme={theme}>
