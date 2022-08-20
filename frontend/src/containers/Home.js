@@ -22,8 +22,6 @@ function Home() {
   <section class="section--page">
 
       <div id="socials--list">
-          <a href="https://youtube.com/c/dennisivy" target="_blank">Youtube</a>
-          <a href="https://twitter.com/dennisivy11" target="_blank">Twitter</a>
           <a href="https://www.linkedin.com/in/ching-yin-lau-457825206/" target="_blank">Linkedin</a>
           <a href="https://github.com/rickylcy" target="_blank">Github</a>
           <a href={CV} target="_blank">Download Resume</a>
@@ -35,7 +33,7 @@ function Home() {
       <ul id="qualifications--list">
           <li>✔️ Continuous self-learning on modern tech stack</li>
           <li>✔️ Currently focusing on React with MERN stack and Redux</li>
-          <li>✔️  </li>
+          <li>✔️ 1 year of internship experience under QUT Capstone Project</li>
           <li>✔️ Native Mandarin and Cantonese speaker!</li>
       </ul>
   </section>
@@ -102,19 +100,19 @@ function Home() {
       <h2>Projects & Accomplishments</h2>
 
       <div class="card--project">
-          <a href="project1.html"><span>🏆 </span>Built a Laboratory management system for forensics lab</a>
+          <a href="project1.html"><span>🏆 </span></a>
       </div>
 
       <div class="card--project">
-          <a href="project1.html" ><span>🏆 </span>Documentation website - Lead team to re-build docs for agora.io</a>
+          <a href="project1.html" ><span>🏆 </span></a>
       </div>
 
       <div class="card--project">
-          <a href="project1.html" ><span>🏆 </span>Ecommerce platform using paypal and stripe API for payment integration</a>
+          <a href="project1.html" ><span>🏆 </span></a>
       </div>
 
       <div class="card--project">
-          <a href="project1.html"><span>🏆 </span>Social Network - open source project</a>
+          <a href="project1.html"><span>🏆 </span></a>
       </div>
 
   </section>

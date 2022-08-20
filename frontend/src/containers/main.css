@@ -82,9 +82,19 @@ li{
     border-radius: 50%;
 }
 
-
+/*old
 #socials--list{
     display: flex;
+    justify-content: space-between;
+    column-gap: 1em;
+    flex-wrap: wrap;
+}
+*/
+
+#socials--list{
+    width: 600px;
+    display:flex;
+    padding-left: 200px;
     justify-content: space-between;
     column-gap: 1em;
     flex-wrap: wrap;
