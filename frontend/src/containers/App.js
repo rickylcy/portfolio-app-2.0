@@ -5,6 +5,8 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Home from "./Home";
 import Weather from "./Weather";
 import Shopping from "./Shopping";
+import Feedback from '../components/home/Feedback.js'
+
 
 function App() {
   const theme = createTheme({
@@ -36,6 +38,7 @@ function App() {
           <Route path="portfolio-app-2.0" element={<Home />} />
           <Route path="Weather" element={<Weather />} />
           <Route path="Shopping" element={<Shopping />} />
+          <Route path="Feedback" element={<Feedback />} />
         </Routes>
       </ThemeProvider>
     </div>

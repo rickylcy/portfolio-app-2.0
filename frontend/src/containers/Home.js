@@ -1,7 +1,10 @@
 import "./main.css"
 import * as React from 'react';
+import { BrowserRouter as Router,
+    Routes ,
+    Route,Link } from 'react-router-dom';
 import Avatar from '@mui/material/Avatar';
-import Img from '../images/profile_pic.jpg'
+import Img from '../media/profile_pic.jpg'
 import CV from '../docs/resume.pdf'
 function Home() {
   return (<div id="container--main">
@@ -68,7 +71,7 @@ function Home() {
 
       <div class="card--work-history">
           <strong>🚧 WEB DEVELOPER | PERSONAL PROJECT</strong>
-          <p>11/2020 - Present</p>
+          <p>10/2021 - Present</p>
           <p>Enhancing web development skill by creating different app for practice and keep track on Github repo.</p>
           <ul>
               <li>Full stack development with MERN stack</li>
@@ -100,7 +103,8 @@ function Home() {
       <h2>Projects & Accomplishments</h2>
 
       <div class="card--project">
-          <a href="project1.html"><span>🏆 </span></a>
+        <a href="/feedback"><span>🏆 Build a feedback mechanism for NDIS provider</span></a>
+      
       </div>
 
       <div class="card--project">
@@ -114,6 +118,7 @@ function Home() {
       <div class="card--project">
           <a href="project1.html"><span>🏆 </span></a>
       </div>
+
 
   </section>
 
