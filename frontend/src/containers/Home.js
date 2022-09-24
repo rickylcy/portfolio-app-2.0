@@ -103,7 +103,7 @@ function Home() {
       <h2>Projects & Accomplishments</h2>
 
       <div class="card--project">
-        <a href="/Feedback"><span>🏆 Build a feedback mechanism for NDIS provider</span></a>
+        <Link to="/Feedback"><span>🏆 Build a feedback mechanism for NDIS provider</span></Link>
       
       </div>
 
