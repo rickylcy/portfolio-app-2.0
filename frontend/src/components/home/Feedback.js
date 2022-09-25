@@ -1,11 +1,14 @@
 import React from "react";
 import "../../containers/main.css";
 import ReactPlayer from 'react-player/youtube';
-import Report from '../../docs/FinalReport.pdf'
+import { BrowserRouter as Router,
+  Routes ,
+  Route,Link } from 'react-router-dom';
+import Report from '../../docs/FinalReport.pdf';
 function Feedback() {
   return (
     <div id="container--main">
-            <a href="/">&#x2190; Go Back</a>
+            <Link to="/">&#x2190; Go Back</Link>
             <h1>Build a feedback mechanism for NDIS provider (LeapIn!)</h1>
             <a href={Report} target="_blank">View Report</a>
             <p>LeapIn! provides Plan Management services for people part of the National Disability Insurance Scheme or NDIS which is a scheme sponsored by the Australian Government to fund people with disabilities. Therefore, Leap In! operates in the Disability Services Sector and provides a platform for participants of the program to be able to manage their NDIS Plans. </p>
